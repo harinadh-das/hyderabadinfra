@@ -1,0 +1,186 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: hyderabadinfra-postgres
+    environment:
+      POSTGRES_DB: hyderabadinfra
+      POSTGRES_USER: hyderabadinfra
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init-databases.sql:/docker-entrypoint-initdb.d/init-databases.sql
+    networks:
+      - hyderabadinfra-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: hyderabadinfra-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - hyderabadinfra-network
+
+  # Zookeeper for Kafka
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: hyderabadinfra-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - hyderabadinfra-network
+
+  # Kafka Message Broker
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: hyderabadinfra-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    networks:
+      - hyderabadinfra-network
+
+  # API Gateway
+  api-gateway:
+    build: ./api-gateway
+    container_name: hyderabadinfra-api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - redis
+    networks:
+      - hyderabadinfra-network
+
+  # User Management Service
+  user-service:
+    build: ./user-management-service
+    container_name: hyderabadinfra-user-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: hyderabadinfra_users
+      DB_USERNAME: hyderabadinfra
+      DB_PASSWORD: password123
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      REDIS_HOST: redis
+    depends_on:
+      - postgres
+      - kafka
+      - redis
+    networks:
+      - hyderabadinfra-network
+
+  # Property Management Service
+  property-service:
+    build: ./property-management-service
+    container_name: hyderabadinfra-property-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: hyderabadinfra_properties
+      DB_USERNAME: hyderabadinfra
+      DB_PASSWORD: password123
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      REDIS_HOST: redis
+    depends_on:
+      - postgres
+      - kafka
+      - redis
+    networks:
+      - hyderabadinfra-network
+
+  # Search Service
+  search-service:
+    build: ./search-service
+    container_name: hyderabadinfra-search-service
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: hyderabadinfra_search
+      DB_USERNAME: hyderabadinfra
+      DB_PASSWORD: password123
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      REDIS_HOST: redis
+    depends_on:
+      - postgres
+      - kafka
+      - redis
+      - property-service
+    networks:
+      - hyderabadinfra-network
+
+  # Notification Service
+  notification-service:
+    build: ./notification-service
+    container_name: hyderabadinfra-notification-service
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: hyderabadinfra_notifications
+      DB_USERNAME: hyderabadinfra
+      DB_PASSWORD: password123
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      EMAIL_USERNAME: ${EMAIL_USERNAME}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
+    depends_on:
+      - postgres
+      - kafka
+    networks:
+      - hyderabadinfra-network
+
+  # File Upload Service
+  file-service:
+    build: ./file-upload-service
+    container_name: hyderabadinfra-file-service
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+    volumes:
+      - file_uploads:/app/uploads
+    networks:
+      - hyderabadinfra-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  kafka_data:
+  file_uploads:
+
+networks:
+  hyderabadinfra-network:
+    driver: bridge

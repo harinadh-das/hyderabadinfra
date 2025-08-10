@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Property for Free - HyderabadInfra.com</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/performance-optimized.css">
+    <link rel="stylesheet" href="../css/user-menu-fix.css">
+    <link rel="stylesheet" href="../css/profile-dropdown-fix.css">
+    <link rel="stylesheet" href="../css/post-free.css">
+    <link rel="stylesheet" href="../css/navigation-popup-override.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html" class="logo-bilingual">
+                        <span class="logo-english">hyderabadinfra.com</span>
+                        <span class="logo-telugu">హైదరాబాద్ ఇన్ఫ్రా</span>
+                    </a>
+                </div>
+                <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="for-buyers.html" class="nav-link" id="buyers-link">For Buyers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="for-tenants.html" class="nav-link" id="tenants-link">For Tenants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="for-owners.html" class="nav-link" id="owners-link">For Owners</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="for-dealers.html" class="nav-link" id="dealers-link">For Dealers / Builders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="post-property.html" class="nav-link btn-post active">Post Free</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="nav-link">Sign In / Register</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn"><span class="hamburger"></span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sell or Rent Your Property</h1>
+                <p>Post your property for FREE and connect with verified buyers & tenants</p>
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>100% Free Posting</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-users"></i>
+                        <span>Verified Buyers</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Maximum Exposure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Property Details</h2>
+                    <p>Fill in the details below to list your property</p>
+                </div>
+
+                <form class="property-form" id="propertyForm">
+                    <!-- Property Type Selection -->
+                    <div class="form-group">
+                        <label class="form-label">I want to</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="listingType" value="sell" checked>
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Sell</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="listingType" value="rent">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Rent/Lease</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Property Category -->
+                    <div class="form-group">
+                        <label class="form-label">Property Type</label>
+                        <div class="property-types">
+                            <button type="button" class="type-btn active" data-type="residential">
+                                <i class="fas fa-home"></i>
+                                <span>Residential</span>
+                            </button>
+                            <button type="button" class="type-btn" data-type="commercial">
+                                <i class="fas fa-building"></i>
+                                <span>Commercial</span>
+                            </button>
+                            <button type="button" class="type-btn" data-type="land">
+                                <i class="fas fa-map"></i>
+                                <span>Land/Plot</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sub Property Type -->
+                    <div class="form-group">
+                        <label class="form-label">Property Sub-type</label>
+                        <select class="form-select" name="propertySubType" id="propertySubType">
+                            <option value="apartment">Apartment</option>
+                            <option value="villa">Villa</option>
+                            <option value="house">Independent House</option>
+                            <option value="builder-floor">Builder Floor</option>
+                        </select>
+                    </div>
+
+                    <!-- BHK Configuration -->
+                    <div class="form-group" id="bhkGroup">
+                        <label class="form-label">BHK</label>
+                        <div class="bhk-options">
+                            <button type="button" class="bhk-btn" data-value="1">1 BHK</button>
+                            <button type="button" class="bhk-btn" data-value="2">2 BHK</button>
+                            <button type="button" class="bhk-btn" data-value="3">3 BHK</button>
+                            <button type="button" class="bhk-btn" data-value="4">4 BHK</button>
+                            <button type="button" class="bhk-btn" data-value="5">5+ BHK</button>
+                        </div>
+                    </div>
+
+                    <!-- Property Details -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Built-up Area</label>
+                            <div class="input-group">
+                                <input type="number" class="form-input" name="area" placeholder="1200" required>
+                                <select class="form-select unit-select" name="areaUnit">
+                                    <option value="sqft">Sq Ft</option>
+                                    <option value="sqm">Sq M</option>
+                                    <option value="sqyard">Sq Yard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Total Floor</label>
+                            <input type="number" class="form-input" name="totalFloors" placeholder="5">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Floor No.</label>
+                            <input type="number" class="form-input" name="floorNumber" placeholder="2">
+                        </div>
+                    </div>
+
+                    <!-- Location Details -->
+                    <div class="form-group">
+                        <label class="form-label">Property Location</label>
+                        <input type="text" class="form-input" name="location" placeholder="Enter locality, project or landmark" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-input" name="city" value="Hyderabad" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Pincode</label>
+                            <input type="text" class="form-input" name="pincode" placeholder="500001">
+                        </div>
+                    </div>
+
+                    <!-- Pricing -->
+                    <div class="form-group">
+                        <label class="form-label">Expected Price</label>
+                        <div class="price-input">
+                            <input type="number" class="form-input" name="price" placeholder="85" required>
+                            <select class="form-select unit-select" name="priceUnit">
+                                <option value="lac">Lac</option>
+                                <option value="crore">Crore</option>
+                                <option value="thousand">Thousand</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Features & Amenities -->
+                    <div class="form-group">
+                        <label class="form-label">Key Features</label>
+                        <div class="amenities-grid">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="amenities" value="parking">
+                                <span class="checkbox-custom"></span>
+                                <span>Car Parking</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="amenities" value="lift">
+                                <span class="checkbox-custom"></span>
+                                <span>Lift</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="amenities" value="security">
+                                <span class="checkbox-custom"></span>
+                                <span>24x7 Security</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="amenities" value="gym">
+                                <span class="checkbox-custom"></span>
+                                <span>Gymnasium</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="amenities" value="swimming">
+                                <span class="checkbox-custom"></span>
+                                <span>Swimming Pool</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="amenities" value="garden">
+                                <span class="checkbox-custom"></span>
+                                <span>Garden</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="amenities" value="powerBackup">
+                                <span class="checkbox-custom"></span>
+                                <span>Power Backup</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="amenities" value="clubhouse">
+                                <span class="checkbox-custom"></span>
+                                <span>Club House</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Property Description -->
+                    <div class="form-group">
+                        <label class="form-label">Property Description</label>
+                        <textarea class="form-textarea" name="description" rows="4" placeholder="Describe your property, its unique features, nearby landmarks, etc."></textarea>
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="form-section-header">
+                        <h3>Contact Information</h3>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-input" name="ownerName" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Mobile Number</label>
+                            <input type="tel" class="form-input" name="mobile" placeholder="9876543210" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" name="email" placeholder="your.email@example.com">
+                    </div>
+
+                    <!-- Photo Upload -->
+                    <div class="form-group">
+                        <label class="form-label">Property Photos</label>
+                        <div class="photo-upload">
+                            <div class="upload-area" id="uploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h4>Upload Property Photos</h4>
+                                <p>Drag and drop photos here or click to browse</p>
+                                <input type="file" id="photoInput" multiple accept="image/*" hidden>
+                            </div>
+                            <div class="photo-preview" id="photoPreview"></div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-submit">
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Post Property for FREE
+                        </button>
+                        <p class="terms">By posting, you agree to our <a href="#">Terms & Conditions</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">hyderabadinfra.com</span>
+                    </div>
+                    <p class="footer-desc">Your trusted partner in finding the perfect property in Hyderabad.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="buy.html">Buy Properties</a></li>
+                        <li><a href="rent.html">Rent Properties</a></li>
+                        <li><a href="commercial.html">Commercial</a></li>
+                        <li><a href="plots-land.html">Plots/Land</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Popular Areas</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Gachibowli</a></li>
+                        <li><a href="#">Kondapur</a></li>
+                        <li><a href="#">Jubilee Hills</a></li>
+                        <li><a href="#">Banjara Hills</a></li>
+                        <li><a href="#">Madhapur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-envelope"></i> info@hyderabadinfra.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HyderabadInfra.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/post-free.js"></script>
+    <script src="../js/simple-popup.js"></script>
+</body>
+</html>

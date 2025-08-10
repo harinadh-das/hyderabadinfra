@@ -1,0 +1,225 @@
+/* User Menu Fix - Ensure proper visibility and functionality */
+
+/* Force proper stacking and positioning */
+.header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000 !important;
+    isolation: isolate;
+}
+
+.nav-menu {
+    z-index: 1001;
+}
+
+.user-menu {
+    position: relative !important;
+    z-index: 10002 !important;
+}
+
+.user-dropdown {
+    position: relative !important;
+    z-index: 10002 !important;
+}
+
+.user-btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background: none !important;
+    border: none !important;
+    color: #374151 !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+    font-size: 0.875rem !important;
+}
+
+.user-btn:hover {
+    background: #f3f4f6 !important;
+    color: #2563eb !important;
+}
+
+.user-btn i.fa-user-circle {
+    font-size: 1.25rem !important;
+    color: #2563eb !important;
+}
+
+.user-btn i.fa-chevron-down {
+    font-size: 0.75rem !important;
+    transition: transform 0.2s ease !important;
+}
+
+.user-dropdown.active .user-btn i.fa-chevron-down {
+    transform: rotate(180deg) !important;
+}
+
+.user-dropdown-menu {
+    position: fixed !important;
+    top: 60px !important;
+    right: 20px !important;
+    background: white !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 8px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25) !important;
+    min-width: 220px !important;
+    z-index: 999999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) !important;
+    transition: all 0.2s ease !important;
+    margin-top: 0 !important;
+    max-height: 400px !important;
+    overflow-y: auto !important;
+    pointer-events: none !important;
+}
+
+/* Active state - make it visible */
+.user-dropdown.active .user-dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+    display: block !important;
+}
+
+.user-dropdown-menu .dropdown-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    padding: 0.75rem 1rem !important;
+    color: #374151 !important;
+    text-decoration: none !important;
+    font-size: 0.875rem !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+    background: none !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    border-radius: 0 !important;
+}
+
+.user-dropdown-menu .dropdown-item:first-child {
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.user-dropdown-menu .dropdown-item:last-child {
+    border-radius: 0 0 8px 8px !important;
+}
+
+.user-dropdown-menu .dropdown-item:hover {
+    background: #f3f4f6 !important;
+    color: #2563eb !important;
+}
+
+.user-dropdown-menu .dropdown-item.active {
+    background: #eff6ff !important;
+    color: #2563eb !important;
+    font-weight: 500 !important;
+}
+
+.user-dropdown-menu .dropdown-item i {
+    width: 16px !important;
+    font-size: 0.875rem !important;
+}
+
+.dropdown-divider {
+    border: none !important;
+    border-top: 1px solid #e5e7eb !important;
+    margin: 0.5rem 0 !important;
+}
+
+.logout-btn {
+    color: #dc2626 !important;
+}
+
+.logout-btn:hover {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+}
+
+/* Mobile specific fixes */
+@media (max-width: 768px) {
+    .user-dropdown-menu {
+        right: -50px !important;
+        min-width: 240px !important;
+    }
+    
+    .nav-menu-active .user-menu {
+        order: -1 !important;
+        width: 100% !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        padding-bottom: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .nav-menu-active .user-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        background: #f3f4f6 !important;
+        border-radius: 8px !important;
+    }
+    
+    .nav-menu-active .user-dropdown-menu {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        margin-top: 0.5rem !important;
+        box-shadow: none !important;
+        border: 1px solid #e5e7eb !important;
+    }
+    
+    .nav-menu-active .user-dropdown.active .user-dropdown-menu {
+        position: relative !important;
+        transform: none !important;
+    }
+}
+
+/* Debug styles - can remove after testing */
+.user-dropdown.active {
+    background: rgba(37, 99, 235, 0.1) !important;
+    border-radius: 8px !important;
+}
+
+/* Ensure no conflicting styles */
+.user-dropdown-menu * {
+    box-sizing: border-box !important;
+}
+
+/* Force visibility when active */
+.user-dropdown.active .user-dropdown-menu {
+    display: block !important;
+}
+
+/* Reset z-index for all potential conflicting elements */
+.main-content,
+.featured-properties,
+.popular-locations,
+.hero,
+.search-section,
+.properties-grid,
+.locations-grid,
+.property-modal,
+.container,
+section,
+main {
+    position: relative;
+    z-index: auto !important;
+}
+
+/* Ensure dropdown appears above modals too */
+.property-modal {
+    z-index: 10000 !important;
+}
+
+.user-dropdown-menu {
+    z-index: 999999 !important;
+}
+
+/* Add a distinctive background when dropdown is active for debugging */
+.user-dropdown.active {
+    background: rgba(37, 99, 235, 0.1) !important;
+    border-radius: 8px !important;
+}

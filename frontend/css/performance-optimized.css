@@ -1,0 +1,195 @@
+/* Performance Optimized CSS - Reduces lag and improves scrolling */
+
+/* Use GPU acceleration for smooth animations */
+.property-card,
+.location-card,
+.project-card,
+.project-card-list {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Optimize image rendering */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Reduce complex animations on scroll */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Optimize hover effects - use transform instead of multiple properties */
+.property-card:hover,
+.location-card:hover,
+.project-card:hover {
+    transform: translateY(-8px) translateZ(0);
+}
+
+/* Simplify shadows for better performance */
+.property-card,
+.location-card,
+.saved-property-card,
+.project-card-list {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.property-card:hover,
+.location-card:hover,
+.saved-property-card:hover,
+.project-card-list:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Optimize transitions - only transition what's needed */
+.property-card,
+.location-card,
+.project-card,
+.dropdown-menu,
+.tab-btn,
+.filter-btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Reduce animation complexity */
+.badge,
+.amenity-tag,
+.action-btn {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Optimize dropdown animations */
+.dropdown-menu {
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.dropdown-menu-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-menu-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Optimize grid layouts */
+.properties-grid,
+.locations-grid,
+.projects-grid {
+    display: grid;
+    gap: 1.5rem;
+    contain: layout style;
+}
+
+/* Reduce reflows on hover */
+.property-info,
+.location-info,
+.project-info-list {
+    contain: layout;
+}
+
+/* Optimize scrolling containers */
+.main-content,
+.featured-properties,
+.popular-locations {
+    contain: layout style paint;
+}
+
+/* Disable expensive effects on low-end devices */
+@media (max-width: 768px) {
+    .property-overlay,
+    .project-overlay,
+    .location-overlay {
+        display: none;
+    }
+    
+    .property-card:hover,
+    .location-card:hover,
+    .project-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    /* Simplify mobile animations */
+    * {
+        animation-duration: 0.2s !important;
+    }
+}
+
+/* Optimize loading states */
+.loading {
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #2563eb;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Optimize font loading */
+.hero-title,
+.section-title {
+    font-display: swap;
+}
+
+/* Reduce paint areas */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    contain: layout style paint;
+}
+
+.footer {
+    contain: layout style paint;
+}
+
+/* Optimize image lazy loading */
+img[loading="lazy"] {
+    background: #f3f4f6;
+}
+
+/* Reduce CSS calculations */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    contain: layout style;
+}
+
+/* Simplify complex gradients */
+.badge.featured { background: #f59e0b; }
+.badge.new { background: #10b981; }
+.badge.rera { background: #3b82f6; }
+.badge.luxury { background: #8b5cf6; }
+.badge.premium { background: #ec4899; }
+.badge.hot { background: #ef4444; }
+
+/* Remove complex backdrop filters on mobile */
+@media (max-width: 768px) {
+    .badge,
+    .location-badge,
+    .project-badges span {
+        backdrop-filter: none;
+    }
+}

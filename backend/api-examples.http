@@ -1,0 +1,205 @@
+# Hyderabad Infra API Examples
+# Use with REST client like IntelliJ HTTP Client or VS Code REST Client
+
+### Variables
+@baseUrl = http://localhost:8080
+@accessToken = your_access_token_here
+
+### 1. User Registration
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "firstName": "John",
+  "lastName": "Doe",
+  "phoneNumber": "+91-9876543210",
+  "role": "USER"
+}
+
+### 2. User Login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "emailOrUsername": "john@example.com",
+  "password": "password123"
+}
+
+### 3. Get User Profile
+GET {{baseUrl}}/api/users/profile
+Authorization: Bearer {{accessToken}}
+
+### 4. Update User Profile
+PUT {{baseUrl}}/api/users/profile
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "firstName": "John Updated",
+  "lastName": "Doe",
+  "phoneNumber": "+91-9876543210",
+  "address": "123 Main Street",
+  "city": "Hyderabad",
+  "state": "Telangana",
+  "pincode": "500032"
+}
+
+### 5. Create Property
+POST {{baseUrl}}/api/properties
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "title": "Beautiful 3BHK Apartment in Gachibowli",
+  "description": "Spacious apartment with modern amenities, prime location in tech hub",
+  "price": 8500000,
+  "location": "Gachibowli",
+  "address": "123 Tech Park Road, Gachibowli",
+  "city": "Hyderabad",
+  "state": "Telangana",
+  "pincode": "500032",
+  "propertyType": "APARTMENT",
+  "listingType": "SALE",
+  "bedrooms": 3,
+  "bathrooms": 2,
+  "areaSqft": 1450,
+  "parkingSpaces": 1,
+  "floorNumber": 5,
+  "totalFloors": 10,
+  "ageOfProperty": 2,
+  "facing": "East",
+  "furnishedStatus": "SEMI_FURNISHED",
+  "amenities": "Gym, Swimming Pool, Children's Play Area, Security",
+  "nearbyFacilities": "Schools, Hospitals, Shopping Malls, Metro Station",
+  "contactName": "John Doe",
+  "contactPhone": "+91-9876543210",
+  "contactEmail": "john@example.com",
+  "latitude": 17.4435,
+  "longitude": 78.3772
+}
+
+### 6. Get All Properties (Public)
+GET {{baseUrl}}/api/public/properties?page=0&size=10&sortBy=createdAt&sortDir=desc
+
+### 7. Get Property by ID (Public)
+GET {{baseUrl}}/api/public/properties/property_id_here
+
+### 8. Search Properties
+POST {{baseUrl}}/api/search/properties
+Content-Type: application/json
+
+{
+  "query": "apartment gachibowli",
+  "city": "Hyderabad",
+  "propertyType": "APARTMENT",
+  "listingType": "SALE",
+  "minPrice": 5000000,
+  "maxPrice": 15000000,
+  "bedrooms": 3,
+  "minArea": 1000,
+  "maxArea": 2000,
+  "sortBy": "price",
+  "sortOrder": "asc",
+  "page": 0,
+  "size": 10
+}
+
+### 9. Filter Properties (Public)
+GET {{baseUrl}}/api/public/properties/filter?city=Hyderabad&propertyType=APARTMENT&listingType=SALE&minPrice=5000000&maxPrice=15000000&bedrooms=3
+
+### 10. Get Featured Properties
+GET {{baseUrl}}/api/public/properties/featured?limit=5
+
+### 11. Get Property Recommendations
+GET {{baseUrl}}/api/search/recommendations?limit=10
+Authorization: Bearer {{accessToken}}
+
+### 12. Search Suggestions
+GET {{baseUrl}}/api/search/suggestions?query=apart&limit=5
+
+### 13. My Properties
+GET {{baseUrl}}/api/properties/my-properties?page=0&size=10
+Authorization: Bearer {{accessToken}}
+
+### 14. Update Property
+PUT {{baseUrl}}/api/properties/property_id_here
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "title": "Updated - Beautiful 3BHK Apartment in Gachibowli",
+  "description": "Updated description with new amenities",
+  "price": 9000000,
+  "location": "Gachibowli",
+  "address": "123 Tech Park Road, Gachibowli",
+  "city": "Hyderabad",
+  "state": "Telangana",
+  "propertyType": "APARTMENT",
+  "listingType": "SALE",
+  "bedrooms": 3,
+  "bathrooms": 2,
+  "areaSqft": 1450,
+  "furnishedStatus": "FURNISHED"
+}
+
+### 15. Delete Property
+DELETE {{baseUrl}}/api/properties/property_id_here
+Authorization: Bearer {{accessToken}}
+
+### 16. Toggle Property Favorite
+POST {{baseUrl}}/api/properties/property_id_here/favorite
+Authorization: Bearer {{accessToken}}
+
+### 17. Update Property Status
+PATCH {{baseUrl}}/api/properties/property_id_here/status?status=SOLD
+Authorization: Bearer {{accessToken}}
+
+### 18. Upload Single File
+POST {{baseUrl}}/api/files/upload
+Authorization: Bearer {{accessToken}}
+Content-Type: multipart/form-data
+
+# Add file in your HTTP client interface
+
+### 19. Upload Multiple Files
+POST {{baseUrl}}/api/files/upload/multiple
+Authorization: Bearer {{accessToken}}
+Content-Type: multipart/form-data
+
+# Add multiple files in your HTTP client interface
+
+### 20. Download File
+GET {{baseUrl}}/api/files/download/user_id/file_name.jpg
+
+### 21. Refresh Token
+POST {{baseUrl}}/api/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "your_refresh_token_here"
+}
+
+### 22. Logout
+POST {{baseUrl}}/api/auth/logout
+Authorization: Bearer {{accessToken}}
+
+### 23. Health Checks
+GET {{baseUrl}}/actuator/health
+
+### Health Check - User Service
+GET http://localhost:8081/actuator/health
+
+### Health Check - Property Service
+GET http://localhost:8082/actuator/health
+
+### Health Check - Search Service
+GET http://localhost:8083/actuator/health
+
+### Health Check - Notification Service
+GET http://localhost:8084/actuator/health
+
+### Health Check - File Service
+GET http://localhost:8085/actuator/health

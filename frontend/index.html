@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyderabad Infra - Buy, Rent & Sell Properties in Hyderabad</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/performance-optimized.css">
+    <link rel="stylesheet" href="css/user-menu-fix.css">
+    <link rel="stylesheet" href="css/profile-dropdown-fix.css">
+    <link rel="stylesheet" href="css/home-enhancements.css">
+    <link rel="stylesheet" href="css/navigation-popup-override.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html" class="logo-bilingual">
+                        <span class="logo-telugu">హైదరాబాద్ ఇన్ఫ్రా.కామ్</span>
+                        <span class="logo-english">hyderabadinfra.com</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="pages/buy.html" class="nav-link">Buy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/sell.html" class="nav-link">Sell</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/rent.html" class="nav-link">Rent</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/post-property.html" class="nav-link btn-post">Post Property</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/login.html" class="nav-link">Sign In / Register</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="mobile-menu-btn">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Find Your Perfect Home in Hyderabad</h1>
+                <p class="hero-subtitle">Discover premium properties across Hyderabad's prime locations</p>
+                
+                <!-- Property Search Tabs -->
+                <div class="search-tabs">
+                    <button class="tab-btn active" data-tab="buy">Buy</button>
+                    <button class="tab-btn" data-tab="sell">Sell</button>
+                    <button class="tab-btn" data-tab="rent">Rent</button>
+                </div>
+
+                <!-- Search Form -->
+                <div class="search-container">
+                    <div class="search-form">
+                        <!-- Location Input -->
+                        <div class="search-field location-field">
+                            <label class="field-label">Location</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" placeholder="Search locality or project" class="search-input location-input">
+                                <div class="suggestions-dropdown" id="locationDropdown"></div>
+                            </div>
+                        </div>
+
+                        <!-- Property Type Dropdown -->
+                        <div class="search-field property-type-field">
+                            <label class="field-label">Property Type</label>
+                            <div class="dropdown">
+                                <button class="dropdown-btn">
+                                    <span>Residential</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-item" data-value="residential">Residential</div>
+                                    <div class="dropdown-item" data-value="apartment">Apartment</div>
+                                    <div class="dropdown-item" data-value="villa">Villa</div>
+                                    <div class="dropdown-item" data-value="house">Independent House</div>
+                                    <div class="dropdown-item" data-value="plot">Plot/Land</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Budget Range -->
+                        <div class="search-field budget-field">
+                            <label class="field-label">Budget</label>
+                            <div class="dropdown">
+                                <button class="dropdown-btn">
+                                    <span>₹50 Lac - ₹1 Cr</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-item" data-value="under-50">Under ₹50 Lac</div>
+                                    <div class="dropdown-item" data-value="50-100">₹50 Lac - ₹1 Cr</div>
+                                    <div class="dropdown-item" data-value="100-200">₹1 Cr - ₹2 Cr</div>
+                                    <div class="dropdown-item" data-value="200-500">₹2 Cr - ₹5 Cr</div>
+                                    <div class="dropdown-item" data-value="above-500">Above ₹5 Cr</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Search Button -->
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Locations Section -->
+    <section class="popular-locations">
+        <div class="container">
+            <div class="locations-header">
+                <h2 class="section-title">Hyderabad's Best Real Estate Areas</h2>
+                <p class="section-subtitle">Discover premium properties in the most sought-after locations</p>
+                <div class="hover-areas-trigger">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Hover to explore areas</span>
+                </div>
+            </div>
+            <div class="locations-grid" id="locationsGrid">
+                <!-- Premium Established Areas -->
+                <div class="location-card premium clickable" data-category="premium" onclick="window.location.href='pages/areas/gachibowli.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gachibowli IT Hub" loading="lazy">
+                    <div class="location-overlay">
+                        <div class="location-badge premium">Premium IT Hub</div>
+                        <div class="location-info">
+                            <h3>Gachibowli</h3>
+                            <p class="location-desc">Major IT hub with leading MNCs</p>
+                            <div class="location-stats">
+                                <span class="stat-item">2,450+ Properties</span>
+                                <span class="stat-item">₹8,500-12,000/sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-card premium clickable" data-category="premium" onclick="window.location.href='pages/areas/jubilee-hills.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Jubilee Hills Luxury" loading="lazy">
+                    <div class="location-overlay">
+                        <div class="location-badge luxury">Ultra Premium</div>
+                        <div class="location-info">
+                            <h3>Jubilee Hills</h3>
+                            <p class="location-desc">Hyderabad's most prestigious area</p>
+                            <div class="location-stats">
+                                <span class="stat-item">3,120+ Properties</span>
+                                <span class="stat-item">₹12,000-25,000/sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-card premium clickable" data-category="premium" onclick="window.location.href='pages/areas/banjara-hills.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Banjara Hills Premium" loading="lazy">
+                    <div class="location-overlay">
+                        <div class="location-badge luxury">Most Expensive</div>
+                        <div class="location-info">
+                            <h3>Banjara Hills</h3>
+                            <p class="location-desc">8% price growth, premium locality</p>
+                            <div class="location-stats">
+                                <span class="stat-item">2,780+ Properties</span>
+                                <span class="stat-item">₹12,000-15,000/sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- High Growth Emerging Areas -->
+                <div class="location-card emerging clickable" data-category="emerging" onclick="window.location.href='pages/areas/hitec-city.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="HITEC City Commercial" loading="lazy">
+                    <div class="location-overlay">
+                        <div class="location-badge commercial">IT Sector Hub</div>
+                        <div class="location-info">
+                            <h3>HITEC City</h3>
+                            <p class="location-desc">Heart of Hyderabad's IT sector</p>
+                            <div class="location-stats">
+                                <span class="stat-item">1,850+ Properties</span>
+                                <span class="stat-item">₹7,500-11,000/sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-card emerging clickable" data-category="emerging" onclick="window.location.href='pages/areas/madhapur.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Madhapur Growth" loading="lazy">
+                    <div class="location-overlay">
+                        <div class="location-badge growth">16.5% Growth</div>
+                        <div class="location-info">
+                            <h3>Madhapur</h3>
+                            <p class="location-desc">Fast developing with excellent ROI</p>
+                            <div class="location-stats">
+                                <span class="stat-item">2,340+ Properties</span>
+                                <span class="stat-item">₹5,000-12,850/sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-card emerging clickable" data-category="emerging" onclick="window.location.href='pages/areas/kondapur.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Kondapur Development" loading="lazy">
+                    <div class="location-overlay">
+                        <div class="location-badge growth">7.8% Appreciation</div>
+                        <div class="location-info">
+                            <h3>Kondapur</h3>
+                            <p class="location-desc">Prime commercial & residential hub</p>
+                            <div class="location-stats">
+                                <span class="stat-item">1,890+ Properties</span>
+                                <span class="stat-item">₹6,200-9,500/sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Affordable Upcoming Areas -->
+                <div class="location-card affordable clickable" data-category="affordable" onclick="window.location.href='pages/areas/narsingi.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Narsingi Upscale" loading="lazy">
+                    <div class="location-overlay">
+                        <div class="location-badge upscale">Luxury Haven</div>
+                        <div class="location-info">
+                            <h3>Narsingi</h3>
+                            <p class="location-desc">Upscale residential with serene environment</p>
+                            <div class="location-stats">
+                                <span class="stat-item">1,250+ Properties</span>
+                                <span class="stat-item">₹4,500-8,000/sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-card affordable clickable" data-category="affordable" onclick="window.location.href='pages/areas/kokapet.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Kokapet Connectivity" loading="lazy">
+                    <div class="location-overlay">
+                        <div class="location-badge connectivity">Excellent Connectivity</div>
+                        <div class="location-info">
+                            <h3>Kokapet</h3>
+                            <p class="location-desc">Near Financial District & IT hubs</p>
+                            <div class="location-stats">
+                                <span class="stat-item">980+ Properties</span>
+                                <span class="stat-item">₹4,200-7,500/sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-card affordable clickable" data-category="affordable" onclick="window.location.href='pages/areas/manikonda.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Manikonda Investment" loading="lazy">
+                    <div class="location-overlay">
+                        <div class="location-badge investment">Prime Investment</div>
+                        <div class="location-info">
+                            <h3>Manikonda</h3>
+                            <p class="location-desc">Airport Express metro connectivity</p>
+                            <div class="location-stats">
+                                <span class="stat-item">1,450+ Properties</span>
+                                <span class="stat-item">₹4,800-8,200/sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Area Category Filters -->
+            <div class="area-filters">
+                <button class="filter-btn active" data-filter="all">All Areas</button>
+                <button class="filter-btn" data-filter="premium">Premium (₹8,000+/sqft)</button>
+                <button class="filter-btn" data-filter="emerging">High Growth (10%+ appreciation)</button>
+                <button class="filter-btn" data-filter="affordable">Affordable (Under ₹8,000/sqft)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties Section -->
+    <section class="featured-properties">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Properties</h2>
+                <a href="pages/buy.html" class="view-all-btn">View All</a>
+            </div>
+            <div class="properties-grid" id="featuredPropertiesGrid">
+                <!-- Property Card 1 -->
+                <div class="property-card clickable" data-property-id="1" onclick="viewPropertyDetails(1)">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Luxury Gachibowli Apartment" loading="lazy">
+                        <div class="property-badges">
+                            <span class="badge featured">Featured</span>
+                            <span class="badge rera">RERA</span>
+                        </div>
+                        <div class="property-overlay">
+                            <div class="overlay-content">
+                                <div class="property-stats">
+                                    <span class="stat">Premium Location</span>
+                                    <span class="stat">Ready to Move</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h3 class="property-title">Prestige Lakeside Habitat - 3BHK</h3>
+                            <div class="property-developer">Prestige Group</div>
+                        </div>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Financial District, Gachibowli
+                        </p>
+                        <div class="property-details">
+                            <span class="detail-item">
+                                <i class="fas fa-bed"></i>
+                                3 Beds
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-bath"></i>
+                                3 Baths
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-ruler-combined"></i>
+                                1,450 sq ft
+                            </span>
+                        </div>
+                        <div class="property-amenities">
+                            <span class="amenity">Swimming Pool</span>
+                            <span class="amenity">Gym</span>
+                            <span class="amenity">+15 more</span>
+                        </div>
+                        <div class="property-pricing">
+                            <div class="property-price">₹1.2 Cr</div>
+                            <div class="price-per-sqft">₹8,276 per sq ft</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="property-card clickable" data-property-id="2" onclick="viewPropertyDetails(2)">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Jubilee Hills Villa" loading="lazy">
+                        <div class="property-badges">
+                            <span class="badge luxury">Luxury</span>
+                            <span class="badge new">New Launch</span>
+                        </div>
+                        <div class="property-overlay">
+                            <div class="overlay-content">
+                                <div class="property-stats">
+                                    <span class="stat">Ultra Premium</span>
+                                    <span class="stat">Independent Villa</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h3 class="property-title">Brigade Golden Triangle - Villa</h3>
+                            <div class="property-developer">Brigade Group</div>
+                        </div>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Road No. 45, Jubilee Hills
+                        </p>
+                        <div class="property-details">
+                            <span class="detail-item">
+                                <i class="fas fa-bed"></i>
+                                4 Beds
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-bath"></i>
+                                4 Baths
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-ruler-combined"></i>
+                                2,800 sq ft
+                            </span>
+                        </div>
+                        <div class="property-amenities">
+                            <span class="amenity">Private Garden</span>
+                            <span class="amenity">Home Theater</span>
+                            <span class="amenity">+20 more</span>
+                        </div>
+                        <div class="property-pricing">
+                            <div class="property-price">₹3.5 Cr</div>
+                            <div class="price-per-sqft">₹12,500 per sq ft</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="property-card clickable" data-property-id="3" onclick="viewPropertyDetails(3)">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Madhapur Office Space" loading="lazy">
+                        <div class="property-badges">
+                            <span class="badge commercial">Commercial</span>
+                            <span class="badge hot">Hot Deal</span>
+                        </div>
+                        <div class="property-overlay">
+                            <div class="overlay-content">
+                                <div class="property-stats">
+                                    <span class="stat">IT Hub Location</span>
+                                    <span class="stat">High ROI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h3 class="property-title">DLF Cyber City - Office Space</h3>
+                            <div class="property-developer">DLF Limited</div>
+                        </div>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            HITEC City, Madhapur
+                        </p>
+                        <div class="property-details">
+                            <span class="detail-item">
+                                <i class="fas fa-building"></i>
+                                Commercial
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-car"></i>
+                                10 Parking
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-ruler-combined"></i>
+                                3,500 sq ft
+                            </span>
+                        </div>
+                        <div class="property-amenities">
+                            <span class="amenity">Metro Access</span>
+                            <span class="amenity">Food Court</span>
+                            <span class="amenity">+12 more</span>
+                        </div>
+                        <div class="property-pricing">
+                            <div class="property-price">₹2.8 Cr</div>
+                            <div class="price-per-sqft">₹8,000 per sq ft</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 4 -->
+                <div class="property-card clickable" data-property-id="4" onclick="viewPropertyDetails(4)">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Kondapur Modern Home" loading="lazy">
+                        <div class="property-badges">
+                            <span class="badge growth">High Growth</span>
+                            <span class="badge rera">RERA</span>
+                        </div>
+                        <div class="property-overlay">
+                            <div class="overlay-content">
+                                <div class="property-stats">
+                                    <span class="stat">7.8% Appreciation</span>
+                                    <span class="stat">Prime Location</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h3 class="property-title">Godrej Reflections - 2BHK</h3>
+                            <div class="property-developer">Godrej Properties</div>
+                        </div>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Botanical Garden Road, Kondapur
+                        </p>
+                        <div class="property-details">
+                            <span class="detail-item">
+                                <i class="fas fa-bed"></i>
+                                2 Beds
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-bath"></i>
+                                2 Baths
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-ruler-combined"></i>
+                                1,200 sq ft
+                            </span>
+                        </div>
+                        <div class="property-amenities">
+                            <span class="amenity">Club House</span>
+                            <span class="amenity">Garden</span>
+                            <span class="amenity">+8 more</span>
+                        </div>
+                        <div class="property-pricing">
+                            <div class="property-price">₹85 Lac</div>
+                            <div class="price-per-sqft">₹7,083 per sq ft</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 5 -->
+                <div class="property-card clickable" data-property-id="5" onclick="viewPropertyDetails(5)">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Narsingi Premium Apartment" loading="lazy">
+                        <div class="property-badges">
+                            <span class="badge upscale">Luxury Haven</span>
+                            <span class="badge investment">Investment</span>
+                        </div>
+                        <div class="property-overlay">
+                            <div class="overlay-content">
+                                <div class="property-stats">
+                                    <span class="stat">Serene Environment</span>
+                                    <span class="stat">High-end Living</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h3 class="property-title">Phoenix Kessaku - Penthouse</h3>
+                            <div class="property-developer">Phoenix Mills</div>
+                        </div>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Nanakramguda Road, Narsingi
+                        </p>
+                        <div class="property-details">
+                            <span class="detail-item">
+                                <i class="fas fa-bed"></i>
+                                4 Beds
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-bath"></i>
+                                4 Baths
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-ruler-combined"></i>
+                                3,200 sq ft
+                            </span>
+                        </div>
+                        <div class="property-amenities">
+                            <span class="amenity">Sky Lounge</span>
+                            <span class="amenity">Infinity Pool</span>
+                            <span class="amenity">+25 more</span>
+                        </div>
+                        <div class="property-pricing">
+                            <div class="property-price">₹2.4 Cr</div>
+                            <div class="price-per-sqft">₹7,500 per sq ft</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 6 -->
+                <div class="property-card clickable" data-property-id="6" onclick="viewPropertyDetails(6)">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Kokapet Affordable Home" loading="lazy">
+                        <div class="property-badges">
+                            <span class="badge connectivity">Great Connectivity</span>
+                            <span class="badge affordable">Affordable</span>
+                        </div>
+                        <div class="property-overlay">
+                            <div class="overlay-content">
+                                <div class="property-stats">
+                                    <span class="stat">Near IT Hubs</span>
+                                    <span class="stat">Value for Money</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h3 class="property-title">Salarpuria East Crest - 3BHK</h3>
+                            <div class="property-developer">Salarpuria Sattva</div>
+                        </div>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Outer Ring Road, Kokapet
+                        </p>
+                        <div class="property-details">
+                            <span class="detail-item">
+                                <i class="fas fa-bed"></i>
+                                3 Beds
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-bath"></i>
+                                3 Baths
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-ruler-combined"></i>
+                                1,350 sq ft
+                            </span>
+                        </div>
+                        <div class="property-amenities">
+                            <span class="amenity">Metro Nearby</span>
+                            <span class="amenity">Schools</span>
+                            <span class="amenity">+10 more</span>
+                        </div>
+                        <div class="property-pricing">
+                            <div class="property-price">₹95 Lac</div>
+                            <div class="price-per-sqft">₹7,037 per sq ft</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Buy Properties</h3>
+                    <p>Find your dream home from our extensive collection of premium properties</p>
+                    <a href="pages/buy.html" class="service-link">Explore Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Rent Properties</h3>
+                    <p>Discover rental properties that match your lifestyle and budget</p>
+                    <a href="pages/rent.html" class="service-link">Find Rentals</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Commercial</h3>
+                    <p>Find the perfect commercial space for your business needs</p>
+                    <a href="pages/commercial.html" class="service-link">Browse Commercial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo logo-bilingual">
+                        <span class="logo-telugu">హైదరాబాద్ ఇన్ఫ్రా.కామ్</span>
+                        <span class="logo-english">hyderabadinfra.com</span>
+                    </div>
+                    <p class="footer-desc">Your trusted partner in finding the perfect property in Hyderabad. We make real estate simple, transparent, and accessible.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/buy.html">Buy Properties</a></li>
+                        <li><a href="pages/rent.html">Rent Properties</a></li>
+                        <li><a href="pages/commercial.html">Commercial</a></li>
+                        <li><a href="pages/plots-land.html">Plots/Land</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Popular Areas</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Gachibowli</a></li>
+                        <li><a href="#">Kondapur</a></li>
+                        <li><a href="#">Jubilee Hills</a></li>
+                        <li><a href="#">Banjara Hills</a></li>
+                        <li><a href="#">Madhapur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-envelope"></i> info@hyderabadinfra.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HyderabadInfra.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/simple-popup.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>

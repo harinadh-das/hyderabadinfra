@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - HyderabadInfra.com</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/performance-optimized.css">
+    <link rel="stylesheet" href="../css/user-menu-fix.css">
+    <link rel="stylesheet" href="../css/profile-dropdown-fix.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/navigation-popup-override.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <span class="logo-text">hyderabadinfra.com</span>
+                    </a>
+                </div>
+                <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="for-buyers.html" class="nav-link" id="buyers-link">For Buyers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="for-tenants.html" class="nav-link" id="tenants-link">For Tenants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="for-owners.html" class="nav-link" id="owners-link">For Owners</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="for-dealers.html" class="nav-link" id="dealers-link">For Dealers / Builders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="post-property.html" class="nav-link btn-post">Post Free</a>
+                        </li>
+                        <li class="nav-item user-menu">
+                            <div class="user-dropdown">
+                                <button class="user-btn">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span class="user-name" id="userName">User</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="user-dropdown-menu">
+                                    <a href="dashboard.html" class="dropdown-item active">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        Dashboard
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-user"></i>
+                                        Profile
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-heart"></i>
+                                        Wishlist
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-history"></i>
+                                        Search History
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-cog"></i>
+                                        Settings
+                                    </a>
+                                    <hr class="dropdown-divider">
+                                    <button class="dropdown-item logout-btn" onclick="logoutUser()">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Logout
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-content">
+                    <h1>Welcome back, <span id="welcomeUserName">User</span>!</h1>
+                    <p>Manage your property search, track your favorites, and discover new opportunities.</p>
+                </div>
+                <div class="welcome-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="wishlistCount">0</h3>
+                            <p>Saved Properties</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="searchCount">0</h3>
+                            <p>Recent Searches</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="viewedCount">0</h3>
+                            <p>Properties Viewed</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions-section">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <a href="buy.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Buy Properties</h3>
+                        <p>Find your dream home</p>
+                    </a>
+                    <a href="rent.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3>Rent Properties</h3>
+                        <p>Discover rental options</p>
+                    </a>
+                    <a href="post-free.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h3>Post Property</h3>
+                        <p>List your property for free</p>
+                    </a>
+                        <div class="action-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <p>Explore upcoming projects</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="activity-section">
+                <div class="section-header">
+                    <h2>Recent Activity</h2>
+                    <button class="view-all-btn">View All</button>
+                </div>
+                <div class="activity-list" id="activityList">
+                    <!-- Activity items will be generated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Saved Properties -->
+            <section class="saved-properties-section">
+                <div class="section-header">
+                    <h2>Saved Properties</h2>
+                    <button class="view-all-btn">View All</button>
+                </div>
+                <div class="saved-properties-grid" id="savedPropertiesGrid">
+                    <!-- Saved properties will be generated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Recommendations -->
+            <section class="recommendations-section">
+                <div class="section-header">
+                    <h2>Recommended for You</h2>
+                    <button class="view-all-btn">View All</button>
+                </div>
+                <div class="recommendations-grid" id="recommendationsGrid">
+                    <!-- Recommendations will be generated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">hyderabadinfra.com</span>
+                    </div>
+                    <p class="footer-desc">Your trusted partner in finding the perfect property in Hyderabad.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="buy.html">Buy Properties</a></li>
+                        <li><a href="rent.html">Rent Properties</a></li>
+                        <li><a href="commercial.html">Commercial</a></li>
+                        <li><a href="plots-land.html">Plots/Land</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Popular Areas</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Gachibowli</a></li>
+                        <li><a href="#">Kondapur</a></li>
+                        <li><a href="#">Jubilee Hills</a></li>
+                        <li><a href="#">Banjara Hills</a></li>
+                        <li><a href="#">Madhapur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-envelope"></i> support@hyderabadinfra.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HyderabadInfra.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/simple-popup.js"></script>
+</body>
+</html>

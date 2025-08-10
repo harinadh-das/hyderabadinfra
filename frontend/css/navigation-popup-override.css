@@ -1,0 +1,52 @@
+/* NUCLEAR OPTION - COMPLETELY OVERRIDE EVERYTHING */
+.nav-popup {
+    position: fixed !important;
+    top: 80px !important;
+    left: 200px !important;
+    width: 300px !important;
+    background: red !important;
+    color: white !important;
+    padding: 20px !important;
+    border: 3px solid black !important;
+    border-radius: 8px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    z-index: 2147483647 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+
+.dropdown-nav:hover .nav-popup {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.popup-header {
+    background: darkred !important;
+    color: white !important;
+    padding: 15px !important;
+    margin-bottom: 10px !important;
+    font-size: 18px !important;
+}
+
+.popup-item {
+    display: block !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 10px !important;
+    margin: 5px 0 !important;
+    background: darkblue !important;
+}
+
+.popup-item:hover {
+    background: blue !important;
+}
+
+/* FORCE ALL OTHER ELEMENTS TO HAVE LOWER Z-INDEX */
+body * {
+    z-index: 1 !important;
+}
+
+.nav-popup {
+    z-index: 2147483647 !important;
+}

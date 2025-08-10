@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Flatmates in Hyderabad - Share Apartments | HyderabadInfra.com</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/performance-optimized.css">
+    <link rel="stylesheet" href="../css/user-menu-fix.css">
+    <link rel="stylesheet" href="../css/profile-dropdown-fix.css">
+    <link rel="stylesheet" href="../css/home-enhancements.css">
+    <link rel="stylesheet" href="../css/navigation-popup-override.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <span class="logo-english">hyderabadinfra.com</span>
+                    </a>
+                </div>
+                <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="for-buyers.html" class="nav-link" id="buyers-link">For Buyers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="for-tenants.html" class="nav-link" id="tenants-link">For Tenants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="for-owners.html" class="nav-link" id="owners-link">For Owners</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="for-dealers.html" class="nav-link" id="dealers-link">For Dealers / Builders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="post-free.html" class="nav-link btn-post">Post Free</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="nav-link">Sign In / Register</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <span class="hamburger"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 60px 0;">
+        <div class="container">
+            <div class="hero-content" style="text-align: center;">
+                <h1 class="hero-title">Find Your Perfect Flatmate</h1>
+                <p class="hero-subtitle">Connect with verified flatmates to share apartments and reduce living costs in Hyderabad</p>
+                
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+                    <a href="#find-flatmate" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-search"></i>
+                        Find Flatmate
+                    </a>
+                    <a href="#post-requirement" style="background: white; color: #2563eb; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 2px solid #2563eb; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-plus"></i>
+                        Post Requirement
+                    </a>
+                </div>
+
+                <!-- Search Form -->
+                <div class="search-container" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 700px; margin: 0 auto;">
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px;">
+                            <input type="text" placeholder="Search area or locality" style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px;">
+                        </div>
+                        <div style="flex: 1; min-width: 150px;">
+                            <select style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px;">
+                                <option value="">Preference</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="any">Any</option>
+                            </select>
+                        </div>
+                        <div style="flex: 1; min-width: 150px;">
+                            <select style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px;">
+                                <option value="">Budget Range</option>
+                                <option value="5000-10000">₹5,000 - ₹10,000</option>
+                                <option value="10000-15000">₹10,000 - ₹15,000</option>
+                                <option value="15000-25000">₹15,000 - ₹25,000</option>
+                                <option value="25000+">₹25,000+</option>
+                            </select>
+                        </div>
+                        <button style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 12px 25px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Flatmates Section -->
+    <section class="featured-flatmates" style="padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px;">Featured Flatmate Requests</h2>
+            
+            <div class="flatmates-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                <!-- Flatmate Card 1 -->
+                <div class="flatmate-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 25px; transition: transform 0.3s ease;">
+                    <div style="display: flex; align-items: start; gap: 20px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Profile" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                        <div style="flex: 1;">
+                            <h3 style="color: #374151; margin-bottom: 5px; font-size: 18px;">Rahul Sharma</h3>
+                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px; font-size: 14px; color: #6b7280;">
+                                <i class="fas fa-briefcase"></i>
+                                Software Engineer at TCS
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 5px; font-size: 14px; color: #6b7280;">
+                                <i class="fas fa-birthday-cake"></i>
+                                28 years, Male
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="background: #dcfce7; color: #059669; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-bottom: 5px;">Verified</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span style="color: #6b7280; font-size: 14px;">Looking in:</span>
+                            <span style="color: #374151; font-weight: 600;">Gachibowli, Kondapur</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span style="color: #6b7280; font-size: 14px;">Budget:</span>
+                            <span style="color: #2563eb; font-weight: 700;">₹12,000 - ₹18,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #6b7280; font-size: 14px;">Available from:</span>
+                            <span style="color: #374151; font-weight: 600;">Dec 15, 2024</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <p style="color: #6b7280; line-height: 1.5; font-size: 14px;">"Looking for a clean and organized flatmate who is working professional. Non-smoker preferred. I keep the place tidy and expect the same."</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                        <span style="background: #dbeafe; color: #1d4ed8; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Non-smoker</span>
+                        <span style="background: #dcfce7; color: #059669; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Working Professional</span>
+                        <span style="background: #fef3c7; color: #d97706; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Vegetarian</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <button style="flex: 1; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                            Contact
+                        </button>
+                        <button style="background: white; color: #2563eb; border: 1px solid #2563eb; padding: 12px 16px; border-radius: 8px; cursor: pointer;">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Flatmate Card 2 -->
+                <div class="flatmate-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 25px; transition: transform 0.3s ease;">
+                    <div style="display: flex; align-items: start; gap: 20px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b332c9cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Profile" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                        <div style="flex: 1;">
+                            <h3 style="color: #374151; margin-bottom: 5px; font-size: 18px;">Priya Reddy</h3>
+                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px; font-size: 14px; color: #6b7280;">
+                                <i class="fas fa-briefcase"></i>
+                                Marketing Manager at Microsoft
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 5px; font-size: 14px; color: #6b7280;">
+                                <i class="fas fa-birthday-cake"></i>
+                                26 years, Female
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="background: #dcfce7; color: #059669; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-bottom: 5px;">Verified</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span style="color: #6b7280; font-size: 14px;">Looking in:</span>
+                            <span style="color: #374151; font-weight: 600;">Madhapur, Hitech City</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span style="color: #6b7280; font-size: 14px;">Budget:</span>
+                            <span style="color: #2563eb; font-weight: 700;">₹15,000 - ₹25,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #6b7280; font-size: 14px;">Available from:</span>
+                            <span style="color: #374151; font-weight: 600;">Jan 1, 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <p style="color: #6b7280; line-height: 1.5; font-size: 14px;">"Looking for female flatmate only. I prefer a quiet and studious environment. Shared cooking and cleaning responsibilities."</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                        <span style="background: #fce7f3; color: #be185d; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Female Only</span>
+                        <span style="background: #dcfce7; color: #059669; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Working Professional</span>
+                        <span style="background: #dbeafe; color: #1d4ed8; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Quiet</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <button style="flex: 1; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                            Contact
+                        </button>
+                        <button style="background: white; color: #2563eb; border: 1px solid #2563eb; padding: 12px 16px; border-radius: 8px; cursor: pointer;">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Continue with more cards... -->
+                <div class="flatmate-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 25px; transition: transform 0.3s ease;">
+                    <div style="display: flex; align-items: start; gap: 20px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Profile" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                        <div style="flex: 1;">
+                            <h3 style="color: #374151; margin-bottom: 5px; font-size: 18px;">Amit Kumar</h3>
+                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px; font-size: 14px; color: #6b7280;">
+                                <i class="fas fa-briefcase"></i>
+                                Data Analyst at Accenture
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 5px; font-size: 14px; color: #6b7280;">
+                                <i class="fas fa-birthday-cake"></i>
+                                25 years, Male
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="background: #dcfce7; color: #059669; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-bottom: 5px;">Verified</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span style="color: #6b7280; font-size: 14px;">Looking in:</span>
+                            <span style="color: #374151; font-weight: 600;">Kukatpally, Miyapur</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span style="color: #6b7280; font-size: 14px;">Budget:</span>
+                            <span style="color: #2563eb; font-weight: 700;">₹8,000 - ₹14,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #6b7280; font-size: 14px;">Available from:</span>
+                            <span style="color: #374151; font-weight: 600;">Immediate</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <p style="color: #6b7280; line-height: 1.5; font-size: 14px;">"Friendly and easy-going person looking for like-minded flatmate. Love cooking and sharing meals. Pet-friendly."</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                        <span style="background: #dbeafe; color: #1d4ed8; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Pet Friendly</span>
+                        <span style="background: #dcfce7; color: #059669; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Foodie</span>
+                        <span style="background: #fef3c7; color: #d97706; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Easy-going</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <button style="flex: 1; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                            Contact
+                        </button>
+                        <button style="background: white; color: #2563eb; border: 1px solid #2563eb; padding: 12px 16px; border-radius: 8px; cursor: pointer;">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <button style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 15px 40px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 16px;">
+                    View All Flatmate Requests
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" style="padding: 60px 0; background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">How It Works</h2>
+            
+            <div class="steps-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px;">
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #2563eb, #1d4ed8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; margin: 0 auto 20px; position: relative;">
+                        <i class="fas fa-user-plus"></i>
+                        <div style="position: absolute; top: -10px; right: -10px; background: white; color: #2563eb; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold;">1</div>
+                    </div>
+                    <h4 style="color: #374151; margin-bottom: 15px;">Create Your Profile</h4>
+                    <p style="color: #6b7280; line-height: 1.6;">Sign up and create a detailed profile with your preferences, budget, and requirements</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #059669, #047857); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; margin: 0 auto 20px; position: relative;">
+                        <i class="fas fa-search"></i>
+                        <div style="position: absolute; top: -10px; right: -10px; background: white; color: #059669; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold;">2</div>
+                    </div>
+                    <h4 style="color: #374151; margin-bottom: 15px;">Browse & Connect</h4>
+                    <p style="color: #6b7280; line-height: 1.6;">Search for compatible flatmates based on location, budget, and lifestyle preferences</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #7c3aed, #6d28d9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; margin: 0 auto 20px; position: relative;">
+                        <i class="fas fa-comments"></i>
+                        <div style="position: absolute; top: -10px; right: -10px; background: white; color: #7c3aed; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold;">3</div>
+                    </div>
+                    <h4 style="color: #374151; margin-bottom: 15px;">Chat & Meet</h4>
+                    <p style="color: #6b7280; line-height: 1.6;">Connect directly with potential flatmates through our secure messaging system</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; margin: 0 auto 20px; position: relative;">
+                        <i class="fas fa-home"></i>
+                        <div style="position: absolute; top: -10px; right: -10px; background: white; color: #ea580c; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold;">4</div>
+                    </div>
+                    <h4 style="color: #374151; margin-bottom: 15px;">Move In Together</h4>
+                    <p style="color: #6b7280; line-height: 1.6;">Find the perfect apartment together and start your shared living experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Tips Section -->
+    <section class="safety-tips" style="padding: 60px 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <h2 style="background: linear-gradient(135deg, #2563eb, #1d4ed8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 32px; margin-bottom: 30px;">Safety & Security</h2>
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: #374151; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-shield-alt" style="color: #059669;"></i>
+                            Verified Profiles
+                        </h4>
+                        <p style="color: #6b7280; line-height: 1.6;">All users undergo identity verification through official documents and phone verification</p>
+                    </div>
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: #374151; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-lock" style="color: #059669;"></i>
+                            Secure Communication
+                        </h4>
+                        <p style="color: #6b7280; line-height: 1.6;">Your personal contact information is protected until you choose to share it</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #374151; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-user-check" style="color: #059669;"></i>
+                            Background Checks
+                        </h4>
+                        <p style="color: #6b7280; line-height: 1.6;">Premium members get additional background verification for extra security</p>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Safety" style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" style="padding: 80px 0; background: linear-gradient(135deg, #2563eb, #1d4ed8);">
+        <div class="container">
+            <div style="text-align: center; color: white;">
+                <h2 style="font-size: 36px; margin-bottom: 20px;">Ready to Find Your Ideal Flatmate?</h2>
+                <p style="font-size: 18px; margin-bottom: 40px; opacity: 0.9;">Join thousands of people who found their perfect living partner through our platform</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="register.html" style="background: white; color: #2563eb; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-user-plus"></i>
+                        Sign Up Now
+                    </a>
+                    <a href="#post-requirement" style="background: transparent; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 2px solid white; display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-plus"></i>
+                        Post Requirement
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-english">hyderabadinfra.com</span>
+                    </div>
+                    <p class="footer-desc">Your trusted partner in finding the perfect property in Hyderabad. We make real estate simple, transparent, and accessible.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="buy.html">Buy Properties</a></li>
+                        <li><a href="rent.html">Rent Properties</a></li>
+                        <li><a href="commercial.html">Commercial</a></li>
+                        <li><a href="plots-land.html">Plots/Land</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Popular Areas</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Gachibowli</a></li>
+                        <li><a href="#">Kondapur</a></li>
+                        <li><a href="#">Jubilee Hills</a></li>
+                        <li><a href="#">Banjara Hills</a></li>
+                        <li><a href="#">Madhapur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-envelope"></i> info@hyderabadinfra.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HyderabadInfra.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/simple-popup.js"></script>
+
+    <style>
+        .flatmate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15) !important;
+        }
+
+        @media (max-width: 768px) {
+            .flatmates-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .safety-tips > div > div {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</body>
+</html>
